@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ucapan Ulang Tahun</title>
+    <style>
+        /* CSS Styling */
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            background-color: #ffebee;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-image: url('Room Kaela 3.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+
+       .card {
+    background-color: rgba(255, 255, 255, 0.1); /* More transparent */
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.9);
+    padding: 30px;
+    width: 80%;
+    max-width: 500px;
+    text-align: center;
+    animation: fadeIn 1.5s ease-in-out;
+    position: relative;
+    overflow: hidden;
+    border: 2px solid rgba(255, 255, 255, 1); /* Subtle white border */
+    backdrop-filter: blur(2px); /* Frosted glass effect */
+}
+
+    .card::before {
+        content: "";
+        position: absolute;
+        top: -10px;
+        left: -10px;
+        right: -10px;
+        bottom: -10px;
+        background: linear-gradient(45deg, #ff9a9e, #fad0c4, #fbc2eb, #a6c1ee);
+        background-size: 400% 400%;
+        z-index: -1;
+        border-radius: 30px;
+        animation: gradientBG 15s ease infinite;
+        opacity: 0.8; /* More transparent gradient */
+}
+
+    @keyframes gradientBG {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+}
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+}
+
+        h1 {
+            color: #d81b60;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        p {
+            color: #333;
+            font-size: 1.2rem;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+
+        .name {
+            font-weight: bold;
+            color: #e91e63;
+            font-size: 1.4rem;
+        }
+
+        a{
+            text-decoration: none;
+        }
+
+        .balloon {
+            position: absolute;
+            width: 40px;
+            height: 50px;
+            background-color: #ff4081;
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .balloon::before {
+            content: "";
+            position: absolute;
+            bottom: -10px;
+            left: 15px;
+            width: 2px;
+            height: 15px;
+            background-color: #333;
+        }
+
+        .balloon:nth-child(1) {
+            top: 10%;
+            left: 10%;
+            background-color: #ff4081;
+            animation-delay: 0s;
+        }
+
+        .balloon:nth-child(2) {
+            top: 20%;
+            right: 15%;
+            background-color: #3f51b5;
+            animation-delay: 1s;
+        }
+
+        .balloon:nth-child(3) {
+            bottom: 15%;
+            left: 20%;
+            background-color: #4caf50;
+            animation-delay: 2s;
+        }
+
+        .balloon:nth-child(4) {
+            bottom: 25%;
+            right: 10%;
+            background-color: #ff9800;
+            animation-delay: 3s;
+        }
+
+        .cake {
+            font-size: 50px; 
+            text-decoration: none; 
+            }
+
+        .button {
+            background-color: #e91e63;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 50px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .button:hover {
+            background-color: #c2185b;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .card {
+                width: 90%;
+                padding: 20px;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="balloon"></div>
+    <div class="balloon"></div>
+    <div class="balloon"></div>
+    <div class="balloon"></div>
+    
+    <div class="card">
+        <h1>Selamat Ulang Tahun!</h1>
+       <div class="cake">🎂</div>
+        <p>Hari ini adalah hari spesial untukmu, <a href="hide.html"><span class="name">Bintang Nur Lestari</span></a>!</p>
+        <p>Semoga di usia yang baru ini, kamu diberikan kesehatan, kebahagiaan, dan kesuksesan yang berlimpah.</p>
+        <p>Teruslah bersinar seperti bintang yang selalu menerangi di setiap malam yang gelap</p>
+        <a href="kue.html"><button class="button">Kue mu di sini</button></a>
+        <!-- <button class="button" onclick="playMusic()">Putar Musik</button> -->
+    </div>
+
+    <script>
+        // function playMusic() {
+        //     // Ganti dengan link lagu ulang tahun yang Anda inginkan
+        //     const audio = new Audio('https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3');
+        //     audio.play();
+            
+        //     // Animasi confetti sederhana
+        //     for (let i = 0; i < 50; i++) {
+        //         createConfetti();
+        //     }
+        // }
+        
+        function createConfetti() {
+            const confetti = document.createElement('div');
+            confetti.style.position = 'fixed';
+            confetti.style.width = '10px';
+            confetti.style.height = '10px';
+            confetti.style.backgroundColor = getRandomColor();
+            confetti.style.left = Math.random() * window.innerWidth + 'px';
+            confetti.style.top = '-10px';
+            confetti.style.borderRadius = '50%';
+            document.body.appendChild(confetti);
+            
+            const animation = confetti.animate([
+                { top: '-10px', opacity: 1 },
+                { top: window.innerHeight + 'px', opacity: 0 }
+            ], {
+                duration: Math.random() * 3000 + 2000,
+                easing: 'cubic-bezier(0.1, 0.8, 0.9, 1)'
+            });
+            
+            animation.onfinish = () => confetti.remove();
+        }
+        
+        function getRandomColor() {
+            const colors = ['#ff4081', '#3f51b5', '#4caf50', '#ff9800', '#9c27b0'];
+            return colors[Math.floor(Math.random() * colors.length)];
+        }
+    </script>
+</body>
+</html>

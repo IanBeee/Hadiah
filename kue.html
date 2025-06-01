@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kue Ulang Tahun Animasi</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(45deg, #ffcce6, #ccf2ff, #e6ffcc);
+            overflow: hidden;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            cursor: pointer;
+        }
+
+        .container {
+            position: relative;
+            width: 300px;
+            height: 500px;
+        }
+
+        .cake {
+            position: absolute;
+            width: 200px;
+            height: 100px;
+            background: linear-gradient(to bottom, #ff99cc, #cc99ff, #99ffcc);
+            border-radius: 10px 10px 0 0;
+            top: 150px;
+            left: 50px;
+            transform-origin: center bottom;
+            animation: bounce 0.5s 1.5s forwards;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            overflow: visible;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: scale(1,1); }
+            30% { transform: scale(1.1,0.9); }
+            60% { transform: scale(0.9,1.1); }
+        }
+
+        .frosting {
+            position: absolute;
+            top: -10px;
+            left: 0;
+            right: 0;
+            height: 30px;
+            background: linear-gradient(to right, #ff99cc, #cc99ff, #99ffcc);
+            border-radius: 50% 50% 0 0;
+        }
+
+        .candle-container {
+            position: absolute;
+            top: -60px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 20;
+            animation: candleFall 1.8s ease-out forwards;
+        }
+
+        .candle {
+            width: 12px;
+            height: 50px;
+            background: linear-gradient(to bottom, #ffffff, #ffeb99);
+            border-radius: 5px;
+            box-shadow: 
+                0 0 10px rgba(255,200,50,0.8),
+                inset 0 -10px 20px rgba(255,150,0,0.3);
+            border: 1px solid #ffcc00;
+            position: relative;
+        }
+
+        @keyframes candleFall {
+            0% { 
+                transform: translateX(-50%) translateY(-100px) scale(0.5);
+                opacity: 0;
+            }
+            70% { 
+                opacity: 0.5;
+            }
+            100% { 
+                transform: translateX(-50%) translateY(0) scale(1);
+                opacity: 1;
+            }
+        }
+
+        .flame {
+            position: absolute;
+            width: 12px;
+            height: 20px;
+            background: linear-gradient(to top, #ff6600, #ffcc00);
+            border-radius: 50% 50% 20% 20%;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            filter: blur(1px);
+            animation: 
+                flicker 0.3s infinite alternate, 
+                appear 0.1s 2s forwards;
+            opacity: 0;
+            transition: all 0.5s ease;
+        }
+
+        .flame.extinguished {
+            opacity: 0;
+            transform: translateX(-50%) scale(0);
+            animation: none;
+        }
+
+        .smoke {
+            position: absolute;
+            width: 5px;
+            height: 5px;
+            background: #aaa;
+            border-radius: 50%;
+            top: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            opacity: 0;
+        }
+
+        .smoke.rising {
+            animation: smokeRise 2s forwards;
+        }
+
+        @keyframes smokeRise {
+            0% {
+                opacity: 0.8;
+                transform: translateX(-50%) translateY(0) scale(1);
+            }
+            100% {
+                opacity: 0;
+                transform: translateX(-50%) translateY(-100px) scale(3);
+            }
+        }
+
+        @keyframes flicker {
+            0%, 100% { transform: translateX(-50%) scale(1); height: 20px; }
+            50% { transform: translateX(-50%) scale(1.1,0.9); height: 18px; }
+        }
+
+        @keyframes appear {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        .sprinkles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+
+        .sprinkle {
+            position: absolute;
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            animation: sprinkleFloat 3s infinite ease-in-out;
+        }
+
+        @keyframes sprinkleFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-3px); }
+        }
+
+        .message {
+            position: absolute;
+            bottom: 50px;
+            width: 100%;
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            color: #ff6699;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+            opacity: 0;
+            animation: showMessage 1s 2.5s forwards;
+        }
+
+        @keyframes showMessage {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        .face {
+            position: absolute;
+            width: 100%;
+            top: 30px;
+            opacity: 0;
+            animation: showFace 1s 2s forwards;
+        }
+
+        @keyframes showFace {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        .eye {
+            position: absolute;
+            width: 15px;
+            height: 15px;
+            background: #333;
+            border-radius: 50%;
+            top: 0;
+        }
+
+        .left-eye { left: 50px; }
+        .right-eye { right: 50px; }
+
+        .blush {
+            position: absolute;
+            width: 20px;
+            height: 10px;
+            background: rgba(255, 120, 150, 0.4);
+            border-radius: 50%;
+            top: 5px;
+        }
+
+        .left-blush { left: 30px; }
+        .right-blush { right: 30px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="cake">
+            <div class="frosting"></div>
+            <div class="sprinkles" id="sprinkles"></div>
+            <div class="candle-container">
+                <div class="candle"></div>
+                <div class="flame" id="flame"></div>
+                <div class="smoke" id="smoke"></div>
+            </div>
+            <div class="face">
+                <div class="eye left-eye"></div>
+                <div class="eye right-eye"></div>
+                <div class="blush left-blush"></div>
+                <div class="blush right-blush"></div>
+            </div>
+        </div>
+        <div class="message">Selamat Ulang Tahun!</div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const sprinklesContainer = document.getElementById('sprinkles');
+            const flame = document.getElementById('flame');
+            const smoke = document.getElementById('smoke');
+            const colors = ['#ff3333', '#33ff33', '#3333ff', '#ffff33', '#ff33ff', '#33ffff'];
+            
+            // Create sprinkles
+            for (let i = 0; i < 30; i++) {
+                const sprinkle = document.createElement('div');
+                sprinkle.className = 'sprinkle';
+                sprinkle.style.left = `${Math.random() * 100}%`;
+                sprinkle.style.top = `${10 + Math.random() * 80}%`;
+                sprinkle.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                sprinkle.style.animationDelay = `${Math.random() * 2}s`;
+                sprinklesContainer.appendChild(sprinkle);
+            }
+            
+            // Blinking eyes animation
+            setTimeout(() => {
+                const eyes = document.querySelectorAll('.eye');
+                setInterval(() => {
+                    eyes.forEach(eye => {
+                        eye.style.height = '5px';
+                        setTimeout(() => {
+                            eye.style.height = '15px';
+                        }, 200);
+                    });
+                }, 3000);
+            }, 3000);
+            
+            // Extinguish flame when clicking anywhere on screen
+            document.addEventListener('click', function() {
+                if (!flame.classList.contains('extinguished')) {
+                    flame.classList.add('extinguished');
+                    smoke.classList.add('rising');
+                    
+                    setTimeout(() => {
+                        smoke.classList.remove('rising');
+                        smoke.style.opacity = '0';
+                    }, 2000);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
